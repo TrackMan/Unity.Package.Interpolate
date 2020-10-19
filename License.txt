@@ -1,0 +1,46 @@
+/**
+ * Interpolation utility functions: easing, bezier, and catmull-rom.
+ * Consider using Unity's Animation curve editor and AnimationCurve class
+ * before scripting the desired behaviour using this utility.
+ *
+ * Interpolation functionality available at different levels of abstraction.
+ * Low level access via individual easing functions (ex. EaseInOutCirc),
+ * Bezier(), and CatmullRom(). High level access using sequence generators,
+ * NewEase(), NewBezier(), and NewCatmullRom().
+ *
+ * Sequence generators are typically used as follows:
+ *
+ * IEnumerable<Vector3> sequence = Interpolate.New[Ease|Bezier|CatmulRom](configuration);
+ * foreach (Vector3 newPoint in sequence) {
+ *   transform.position = newPoint;
+ *   yield return WaitForSeconds(1.0f);
+ * }
+ *
+ * Or:
+ *
+ * IEnumerator<Vector3> sequence = Interpolate.New[Ease|Bezier|CatmulRom](configuration).GetEnumerator();
+ * function Update() {
+ *   if (sequence.MoveNext()) {
+ *     transform.position = sequence.Current;
+ *   }
+ * }
+ *
+ * The low level functions work similarly to Unity's built in Lerp and it is
+ * up to you to track and pass in elapsedTime and duration on every call. The
+ * functions take this form (or the logical equivalent for Bezier() and CatmullRom()).
+ *
+ * transform.position = ease(start, distance, elapsedTime, duration);
+ *
+ * For convenience in configuration you can use the Ease(EaseType) function to
+ * look up a concrete easing function:
+ * 
+ *  [SerializeField]
+ *  Interpolate.EaseType easeType; // set using Unity's property inspector
+ *  Interpolate.Function ease; // easing of a particular EaseType
+ * function Awake() {
+ *   ease = Interpolate.Ease(easeType);
+ * }
+ *
+ * @author Fernando Zapata (fernando@cpudreams.com)
+ * @Traduzione Andrea85cs (andrea85cs@dynematica.it)
+ */

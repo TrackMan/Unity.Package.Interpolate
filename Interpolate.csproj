@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Fernando Zapata</Authors>
+    <Company>Interpolate</Company>
+    <Description>Interpolation utility functions for easing, Bezier splines, and Catmull-Rom splines. Provides consistent calling conventions across these three interpolation types. Provides low level access via individual easing functions, for example EaseInOutCirc(), Bezier(), and CatmullRom(). Provides high level access using sequence generators, NewEase(), NewBezier(), and NewCatmullRom(). Functionality is available at different levels of abstraction, making the functions easy to use and making your own high level abstractions easy to build.</Description>
+    <PackageProjectUrl>https://wiki.unity3d.com/index.php/Interpolate</PackageProjectUrl>
+    <PackageId>Unity3D.Interpolate.NetStandard2</PackageId>
+    <Copyright></Copyright>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\2020.1.9f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <SpecificVersion>false</SpecificVersion>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
